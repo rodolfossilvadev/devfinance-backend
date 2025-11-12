@@ -18,7 +18,6 @@ import { getHistoricalTransactions } from "../controllers/transactions/getHistor
 const transactionRoutes = async (fastify: FastifyInstance) => {
   fastify.addHook("preHandler", authMiddleware);
 
-  // CRIAÇÃO
   fastify.route({
     method: "POST",
     url: "/",
@@ -28,7 +27,6 @@ const transactionRoutes = async (fastify: FastifyInstance) => {
     handler: createTransaction,
   });
 
-  // BUSCAR COM FILTRO
   fastify.route({
     method: "GET",
     url: "/",
@@ -38,7 +36,6 @@ const transactionRoutes = async (fastify: FastifyInstance) => {
     handler: getTransactions,
   });
 
-  // BUSCAR O RESUMO
   fastify.route({
     method: "GET",
     url: "/summary",
@@ -47,7 +44,6 @@ const transactionRoutes = async (fastify: FastifyInstance) => {
     },
     handler: getTransactionsSummary,
   });
-    // HISTORICO DE TRANSAÇÕES
   fastify.route({
     method: "GET",
     url: "/historical",
@@ -58,7 +54,6 @@ const transactionRoutes = async (fastify: FastifyInstance) => {
   });
 
 
-  // DELETAR TRANSAÇÃO
   fastify.route({
     method: "DELETE",
     url: "/:id",
