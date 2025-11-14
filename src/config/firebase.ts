@@ -2,6 +2,10 @@ import admin from "firebase-admin";
 import { env } from "./env";
 
 const initializeFirebaseAdmin = (): void => {
+  console.log("FIREBASE_CLIENT_EMAIL:", JSON.stringify(FIREBASE_CLIENT_EMAIL));
+console.log("FIREBASE_PROJECT_ID:", JSON.stringify(FIREBASE_PROJECT_ID));
+console.log("FIREBASE_PRIVATE_KEY LENGTH:", FIREBASE_PRIVATE_KEY?.length);
+
   if (admin.apps.length > 0) return;
 
   const {
